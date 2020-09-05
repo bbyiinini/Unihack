@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MDBRow,
   MDBCol,
@@ -9,75 +9,60 @@ import {
 } from "mdbreact";
 import data from "../assets/userData.json";
 
-class Signin extends React.Component {
-  // constructor(props) {
-  //   super(props);
+const Signin = (props) => {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [signedIn, setSignedIn] = useState(false);
 
-  //   this.state = {
-  //     username: "",
-  //     password: "",
-  //     error: false
-  //   };
-  // }
-  // onSubmit(ev) {
-  //   ev.preventDefault();
+  const signin = () => {
+    if (password !== "123") {
+      alert("incorrect");
+    } else {
+      setSignedIn(true);
+      props.toggleLogin();
+    }
+  };
 
-  //   const { username, password } = this.state;
+  const passChange = (e) => {
+    setPassword(e.target.value);
+    console.log(password);
+  };
 
-  //   this.setState({ error: false });
-
-  //   if (!(username === "a" && password === "b")) {
-  //     return this.setState({ error: true });
-  //   }
-  //   this.props.push("/home");
-  // }
-  // const newdata = data.map((data) => {
-  //   return(
-
-  //   )
-  // })
-  render() {
-    return (
-      <MDBRow>
-        <MDBCol md="9" lg="7" xl="5" className="mx-auto mt-3">
-          <MDBCard>
-            <MDBCardBody className="mx-4">
-              <div className="text-center">
-                <h3 className="dark-grey-text mb-5">
-                  <strong>Log In</strong>
-                </h3>
-              </div>
-              <MDBInput
-                label="Your Name"
-                group
-                type="name"
-                validate
-                error="wrong"
-                success="right"
-              />
-              <MDBInput
-                label="Your password"
-                group
-                type="password"
-                validate
-                containerClass="mb-0"
-              />
-              <div className="text-center pt-3 mb-3">
-                <MDBBtn
-                  type="button"
-                  gradient="blue"
-                  rounded
-                  className="btn-block z-depth-1a"
-                >
-                  Log In
-                </MDBBtn>
-              </div>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
-      </MDBRow>
-    );
-  }
-}
+  return (
+    <>
+      {" "}
+      <div className={signedIn ? "wrapper form-success" : "wrapper"}>
+        <div className="container">
+          <h1> {signedIn ? "Welcome " : "Sign In"} </h1>
+          <form className={signedIn ? "fadeOut(500)" : "form"}>
+            <input type="text" placeholder="Username"></input>
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={passChange}
+            ></input>
+            {/* <Link to="/home"> */}
+            <button id="login-button" onClick={signin}>
+              Login
+            </button>
+            {/* </Link> */}
+          </form>
+        </div>
+        <ul className="bg-bubbles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </>
+  );
+};
 
 export default Signin;

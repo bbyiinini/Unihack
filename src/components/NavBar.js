@@ -25,13 +25,13 @@ const NavBar = (props) => {
 
   return (
     <>
-      <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+      <Navbar bg="light" expand="lg" fixed="top">
+        <Navbar.Brand href="#home">Logo</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/findclassmate">Findclassmate</Nav.Link>
+            <Nav.Link href="/findclassmate">FindClassmate</Nav.Link>
             <Nav.Link href="/forum">Forum</Nav.Link>
           </Nav>
           {props.loggedIn ? (
@@ -40,7 +40,7 @@ const NavBar = (props) => {
               placement="bottom"
               overlay={popover}
             >
-              <Button variant="success">Click me to see</Button>
+              <Button variant="danger">Click me to see</Button>
             </OverlayTrigger>
           ) : (
             <>
@@ -52,7 +52,7 @@ const NavBar = (props) => {
                 Login
               </Button> */}
               <DropdownButton
-                variant="outline-success"
+                variant="outline-danger"
                 title="Login&Signup"
                 id="bg-nested-dropdown"
               >

@@ -5,7 +5,7 @@ import Signin from "./components/Signin";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Post from "./components/post/Post";
 import FindClassMate from "./components/FindClassMate";
-import "./styles.css";
+// import "./main.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
@@ -31,10 +31,7 @@ class App extends Component {
           />
           <Switch>
             <Route exact path="/">
-              <div>
-                <h1>Hello World</h1>
-                <h2>Start editing to see some magic happen!</h2>
-              </div>
+              <div></div>
             </Route>
             <Route exact path="/forum" component={() => <Post />} />
             <Route
@@ -43,7 +40,11 @@ class App extends Component {
               component={() => <FindClassMate />}
             />
             <Route exact path="/signup" component={() => <Signup />} />
-            <Route exact path="/login" component={() => <Signin />} />
+            <Route
+              exact
+              path="/login"
+              component={() => <Signin toggleLogin={this.toggleLogin} />}
+            />
           </Switch>
         </Router>
       </div>

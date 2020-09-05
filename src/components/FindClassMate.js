@@ -64,7 +64,7 @@ const FindClassMate = () => {
   };
 
   return (
-    <>
+    <div className="findmate">
       <input
         className="search-class"
         onChange={onSearchChanged}
@@ -76,7 +76,7 @@ const FindClassMate = () => {
             <Grid item xs={3} key={res.id}>
               <Card
                 style={{
-                  width: "18rem",
+                  width: "70%",
                   margin: "0 50%",
                   transform: "translateX(-50%)"
                 }}
@@ -105,7 +105,7 @@ const FindClassMate = () => {
           {isLoading ? "..." : "Load More"}
         </a>
       </div>
-    </>
+    </div>
   );
 };
 
