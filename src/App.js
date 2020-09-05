@@ -7,30 +7,32 @@ import Forum from "./components/post/Forum";
 import FindClassMate from "./components/FindClassMate";
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Col, Image, Row, Figure } from "react-bootstrap/";
+import { Container, Col, Row, Figure } from "react-bootstrap/";
 import logo from "./assets/logo.png";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { loggedIn: localStorage.getItem("myLog") || false };
-    localStorage.clear();
+    this.state = {
+      loggedIn: localStorage.getItem("myLog") === "no" ? false : true
+    };
     this.toggleLogin = this.toggleLogin.bind(this);
+    console.log(
+      "refresh " + localStorage.getItem("myLog") + " " + this.state.loggedIn
+    );
   }
 
   componentDidMount() {
-    localStorage.setItem("myLog", this.state.loggedIn);
-  }
-
-  componentWillUnmount() {
-    localStorage.clear();
+    localStorage.setItem("myLog", this.state.loggedIn ? "yes" : "no");
   }
 
   toggleLogin() {
     this.setState({
-      loggedIn: !this.state.loggedIn
+      loggedIn: localStorage.getItem("myLog") === "no" ? false : true
     });
-    localStorage.setItem("myLog", this.state.loggedIn);
+    console.log(
+      "toggle " + localStorage.getItem("myLog") + " " + this.state.loggedIn
+    );
   }
 
   render() {
@@ -61,7 +63,7 @@ class App extends Component {
                       color: "#FFF8DC"
                     }}
                   >
-                    Find more study buddy with Little Chill !
+                    Find more study buddy with Little Chili !
                   </div>
                   <Container style={{ marginTop: "5px" }}>
                     <Row>
@@ -127,13 +129,8 @@ class App extends Component {
                       </Col>
                     </Row>
                   </Container>
-                  {/* <ul>
-                    <image src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/03/18/15/billgates.jpg/" />
-                    <image src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/03/18/15/billgates.jpg/" />
-                    <image src="https://gray-ktuu-prod.cdn.arcpublishing.com/resizer/2UgCkL8UmHZsbn-NlDQ4yeW89H0=/1200x675/smart/cloudfront-us-east-1.images.arcpublishing.com/gray/KEDSRN6KSJPA3OX6PL6HHNV5TI.jpg/180x180" />
-                  </ul> */}
                 </div>
-                <ul class="bg-bubbles">
+                <ul className="bg-bubbles">
                   <li></li>
                   <li></li>
                   <li></li>

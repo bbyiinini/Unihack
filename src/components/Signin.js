@@ -7,13 +7,19 @@ const Signin = (props) => {
   const [signedIn, setSignedIn] = useState(false);
   const history = useHistory();
 
+  const login = () => {
+    localStorage.setItem("myLog", "yes");
+    props.toggleLogin();
+  };
+
   const signin = (e) => {
-    // const history = useHistory()
     e.preventDefault();
     if (password !== "123" || Id !== "admin") {
       alert("User Name or Password Wrong!");
     } else {
       setSignedIn(true);
+      // localStorage.setItem("myLog", true);
+      login();
       setTimeout(() => {
         history.push("/");
       }, 1000);
@@ -22,17 +28,14 @@ const Signin = (props) => {
 
   const passChange = (e) => {
     setPassword(e.target.value);
-    console.log(password);
   };
 
   const IdChange = (e) => {
     setId(e.target.value);
-    console.log(password);
   };
 
   return (
     <>
-      {" "}
       <div className={signedIn ? "wrapper form-success" : "wrapper"}>
         <div className="container">
           <h1> {signedIn ? "Welcome " : "Sign In"} </h1>
@@ -47,11 +50,9 @@ const Signin = (props) => {
               placeholder="Password"
               onChange={passChange}
             ></input>
-            {/* <Link to="/home"> */}
             <button id="login-button" onClick={signin}>
-              Sign in
+              Login
             </button>
-            {/* </Link> */}
           </form>
         </div>
         <ul className="bg-bubbles">

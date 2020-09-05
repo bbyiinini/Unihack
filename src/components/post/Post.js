@@ -19,7 +19,9 @@ class Post extends Component {
           "https://png.pngitem.com/pimgs/s/128-1280822_check-mark-box-clip-art-blue-admin-icon.png",
         info: {
           class: "cs303",
-          number: "737-202-1111"
+          number: "737-202-1111",
+          email: "user@gmail.com",
+          about: "大家好我是一个学霸"
         }
       },
       posts: [
@@ -27,8 +29,10 @@ class Post extends Component {
           id: 1,
           author: "Dinesh Chugtai",
           info: {
-            class: "cs101",
-            number: "111-111-1111"
+            class: "n,t,z,n",
+            number: "911-555-3758",
+            email: "DineshSilliconValley@gmail.com",
+            about: "Master student at UCSD. Best coder in the bay area."
           },
           authorImage:
             "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters_opt/p-silicon-valley-kumail-nanjiani.jpg",
@@ -41,12 +45,15 @@ class Post extends Component {
           author: "Richard Hendricks",
           info: {
             class: "cs329e",
-            number: "111-111-1111"
+            number: "928-737-6556",
+            email: "Richard@ucsd.edu",
+            about:
+              "Founder and CEO of Pied Piper. Currently a student at UC San Deigo for some reason"
           },
           authorImage:
             "http://siliconvalleyism.com/characters/richard-small.jpg",
           content:
-            "CCS329E looking for a partner to work on the final project.",
+            "Is Anyone taking computer vision next semester at UC San Diego? I am Looking for a partner to work on the final project. Also, I've heard that the professor can be pretty tough. Any suggestion for nailing that class?😅😅😅 ",
           comment: []
         }
       ]
@@ -65,7 +72,7 @@ class Post extends Component {
             return (
               <PostWrapper>
                 <Comment
-                  key={index}
+                  key={item.id}
                   author={item.author}
                   avatar={<Avatar src={item.authorImage} />}
                   content={item.content}
@@ -74,13 +81,17 @@ class Post extends Component {
                       <span>{moment().fromNow()}</span>
                     </Tooltip>
                   }
-                  data-tip
+                  data-tip={item.info.class}
                   data-for="info"
                 />
-                <ReactTooltip id="info" place="top" effect="solid">
-                  <div>class: {item.info.class}</div>
-                  <div>number: {item.info.number}</div>
-                </ReactTooltip>
+                <ReactTooltip
+                  id="info"
+                  place="top"
+                  effect="solid"
+                  getContent={(dataTip) => (
+                    <div> This user is taking classes: {dataTip}</div>
+                  )}
+                />
                 <Divider orientation="left" plain>
                   Comments
                 </Divider>
@@ -88,7 +99,7 @@ class Post extends Component {
                   {item.comment.map((item2, index2) => {
                     return (
                       <Comment
-                        key={index2}
+                        key={this.state.usr.id}
                         author={this.state.user.name}
                         avatar={<Avatar src={this.state.user.image} />}
                         content={item2}

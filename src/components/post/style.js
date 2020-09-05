@@ -1,18 +1,20 @@
 import styled from "styled-components";
 export const PostWrapper = styled.div`
-  margin: 20px 40px;
-  padding: 30px;
+  margin: 20px 90px;
+  padding: 50px;
   box-shadow: 0 4px 8px 0 rgba(0.1, 0, 0, 0.2);
   text-align: left;
   background-color: #ffffff;
   font-size: 20px;
+  color: black;
 `;
 export const NewPostWrapper = styled.div`
-  margin: 70px 30px;
-  padding: 10px;
+  margin: 70px 90px;
+  padding: 50px;
   box-shadow: 0 4px 8px 0 rgba(0.1, 0, 0, 0.2);
   text-align: left;
   background-color: #ffffff;
+  color: black;
 `;
 
 export const Close = styled.div`

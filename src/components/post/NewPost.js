@@ -10,7 +10,7 @@ class NewPost extends Component {
     super(props);
     this.state = {
       show: false,
-      inputValue: ""
+      input: ""
     };
     this.togglePost = this.togglePost.bind(this);
   }
@@ -35,7 +35,7 @@ class NewPost extends Component {
                 <Form.Item>
                   <TextArea
                     rows={4}
-                    value={this.state.inputValue}
+                    value={this.state.input}
                     onChange={this.handleInputChange.bind(this)}
                   />
                 </Form.Item>
@@ -66,12 +66,12 @@ class NewPost extends Component {
 
   handleInputChange(event) {
     this.setState({
-      inputValue: event.target.value
+      input: event.target.value
     });
   }
 
   addNewPost() {
-    this.props.handleNewPostData(this.state.inputValue);
+    this.props.handleNewPostData(this.state.input);
     this.setState({ show: !this.state.show });
   }
 }

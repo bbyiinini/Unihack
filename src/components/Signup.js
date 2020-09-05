@@ -31,7 +31,7 @@ const Signup = () => {
             {/* </Link> */}
           </form>
         </div>
-        <ul class="bg-bubbles">
+        <ul className="bg-bubbles">
           <li></li>
           <li></li>
           <li></li>

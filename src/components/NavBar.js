@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Modal from "react-modal";
 import {
   Navbar,
@@ -17,7 +17,9 @@ Modal.setAppElement("#root");
 
 const NavBar = (props) => {
   const logout = () => {
+    localStorage.setItem("myLog", "no");
     props.toggleLogin();
+    console.log(props);
   };
 
   const popover = (
@@ -25,7 +27,7 @@ const NavBar = (props) => {
       <Card>
         <Card.Img
           variant="top"
-          src="https://png.pngitem.com/pimgs/s/128-1280822_check-mark-box-clip-art-blue-admin-icon.png"
+          src="https://www.flaticon.com/premium-icon/icons/svg/3373/3373540.svg"
         />
         <Card.Body>
           <Card.Title>Admin</Card.Title>
@@ -40,20 +42,22 @@ const NavBar = (props) => {
 
   return (
     <>
-      <Navbar className="navbar" bg="" expand="lg" fixed="top">
+      <Navbar expand="lg" fixed="top">
         {/* <img src={logo} width="40" height="40" alt="/" /> */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse className="bar" id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link className="bar-item" variant="" href="/">
+            <Nav.Link variant="" href="/">
               <img
                 src="https://image.flaticon.com/icons/svg/2948/2948210.svg"
                 width="20"
                 height="20"
                 alt=""
                 style={{ marginTop: "10px" }}
+                // onMouseOver={showText("lalala")}
+                // onMouseOut={showText("")}
               />
-              <div className="barfont">Home</div>
+              <div className="barfont"> Home </div>
             </Nav.Link>
             <Nav.Link variant="" href="/findclassmate">
               <img
@@ -63,7 +67,7 @@ const NavBar = (props) => {
                 alt=""
                 style={{ marginTop: "10px" }}
               />
-              <div className="barfont">Classmates</div>
+              <div className="barfont">Friends</div>
             </Nav.Link>
             <Nav.Link variant="" href="/forum">
               <img
@@ -73,7 +77,7 @@ const NavBar = (props) => {
                 alt=""
                 style={{ marginTop: "10px" }}
               />
-              <div className="barfont">Discussions</div>
+              <div className="barfont">Discuss</div>
             </Nav.Link>
           </Nav>
           {props.loggedIn ? (
@@ -87,7 +91,7 @@ const NavBar = (props) => {
                   // textShadow: "1px 2px 8px rgb(83, 83, 83)",
                   fontSize: "15px",
                   fontFamily: "monospace",
-                  color: "#FFF8DC"
+                  color: "#FFFAF0"
                 }}
                 variant="warning"
               >
