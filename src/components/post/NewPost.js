@@ -8,14 +8,12 @@ const { TextArea } = Input;
 class NewPost extends Component {
   constructor(props) {
     super(props);
-    this.state = { show: false };
+    this.state = {
+      show: false,
+      inputValue: ""
+    };
     this.togglePost = this.togglePost.bind(this);
   }
-
-  togglePost = () => {
-    const { show } = this.state;
-    this.setState({ show: !show });
-  };
 
   render() {
     if (this.state.show) {
@@ -27,24 +25,22 @@ class NewPost extends Component {
               alt="close"
             ></img>
           </Close>
+          <h2>Write a Post to Share Your Mind or Ask a Question 🤩</h2>
           <Comment
             avatar={
-              <Avatar src="https://avatars1.githubusercontent.com/u/59108397?s=60&v=4" />
+              <Avatar src="https://png.pngitem.com/pimgs/s/128-1280822_check-mark-box-clip-art-blue-admin-icon.png" />
             }
             content={
               <div>
                 <Form.Item>
                   <TextArea
                     rows={4}
-                    // value={this.state.inputValue}
-                    // onChange={this.handleInputChange.bind(this)}
+                    value={this.state.inputValue}
+                    onChange={this.handleInputChange.bind(this)}
                   />
                 </Form.Item>
                 <Form.Item>
-                  <Button
-                    // onClick={this.addNewComment.bind(this)}
-                    type="primary"
-                  >
+                  <Button onClick={this.addNewPost.bind(this)} type="danger">
                     Create a Post
                   </Button>
                 </Form.Item>
@@ -56,12 +52,27 @@ class NewPost extends Component {
     } else {
       return (
         <CreatePost onClick={this.togglePost}>
-          <Button type="primary" shape="round" size="large">
-            Create New Post
+          <Button type="danger" shape="round" size="large">
+            Create New Post ✎
           </Button>
         </CreatePost>
       );
     }
+  }
+  togglePost = () => {
+    const { show } = this.state;
+    this.setState({ show: !show });
+  };
+
+  handleInputChange(event) {
+    this.setState({
+      inputValue: event.target.value
+    });
+  }
+
+  addNewPost() {
+    this.props.handleNewPostData(this.state.inputValue);
+    this.setState({ show: !this.state.show });
   }
 }
 export default NewPost;

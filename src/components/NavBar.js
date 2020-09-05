@@ -82,7 +82,17 @@ const NavBar = (props) => {
               placement="bottom"
               overlay={popover}
             >
-              <Button variant="warning">My Account</Button>
+              <Button
+                style={{
+                  // textShadow: "1px 2px 8px rgb(83, 83, 83)",
+                  fontSize: "15px",
+                  fontFamily: "monospace",
+                  color: "#FFF8DC"
+                }}
+                variant="warning"
+              >
+                My Account
+              </Button>
             </OverlayTrigger>
           ) : (
             <>

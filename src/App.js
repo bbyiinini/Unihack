@@ -45,11 +45,18 @@ class App extends Component {
             <Route exact path="/">
               <div className={"wrapper"}>
                 <div className="container">
-                  <Figure.Image width={200} height={200} alt="" src={logo} />
+                  <Figure.Image
+                    style={{ marginTop: "-200px" }}
+                    width={500}
+                    height={500}
+                    alt=""
+                    src={logo}
+                  />
                   <div
                     style={{
+                      marginTop: "-100px",
                       textShadow: "1px 2px 8px rgb(83, 83, 83)",
-                      fontSize: "15px",
+                      fontSize: "17px",
                       fontFamily: "monospace",
                       color: "#FFF8DC"
                     }}
@@ -74,7 +81,8 @@ class App extends Component {
                           }}
                         >
                           <div>Tom</div>
-                          <br></br>I really like this Website!
+                          <br></br>This website is amazing, the developers are
+                          genius！
                         </div>
                       </Col>
                       <Col xs={6} md={4}>
@@ -84,9 +92,17 @@ class App extends Component {
                           alt=""
                           src="https://image.flaticon.com/icons/svg/3382/3382659.svg"
                         />
-                        <div>
-                          <div>Tom</div>
-                          <br></br>I really like this Website!
+                        <div
+                          style={{
+                            textShadow: "1px 2px 8px rgb(83, 83, 83)",
+                            fontSize: "15px",
+                            fontFamily: "monospace",
+                            color: "#FFF8DC"
+                          }}
+                        >
+                          <div>Joyce</div>
+                          <br></br>This website is helpful for finding
+                          classmates.
                         </div>
                       </Col>
                       <Col xs={6} md={4}>
@@ -96,9 +112,17 @@ class App extends Component {
                           alt=""
                           src="https://image.flaticon.com/icons/svg/3382/3382669.svg"
                         />
-                        <div>
-                          <div>Tom</div>
-                          <br></br>I really like this Website!
+                        <div
+                          style={{
+                            textShadow: "1px 2px 8px rgb(83, 83, 83)",
+                            fontSize: "15px",
+                            fontFamily: "monospace",
+                            color: "#FFF8DC"
+                          }}
+                        >
+                          <div>Dave</div>
+                          <br></br>The discussions section allowed me post any
+                          homework questions that I have.
                         </div>
                       </Col>
                     </Row>
