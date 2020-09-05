@@ -47,11 +47,16 @@
 
 .search-class {
   width: 300px;
+  height: 35px;
   border: 2px solid #bcc0c7;
+  color: black;
   outline: none;
   padding-left: 5px;
   border-radius: 10px;
-  margin: 20px 0px;
+  margin: 100px 0px 50px 0px;
+}
+.search-class::placeholder {
+  color: #bcc0c7;
 }
 
 .search-class:hover {
@@ -80,6 +85,12 @@
   background-color: #cd353b;
   color: #fff;
   border: 1px solid #fff;
+}
+.barfont {
+  color: white;
+  text-shadow: 1px 2px 8px rgb(83, 83, 83);
+  font-size: 15px;
+  font-family: monospace;
 }
 
 /* @import url("https://fonts.googleapis.com/css?family=Lobster&display=swap")
@@ -130,6 +141,7 @@ body :-ms-input-placeholder {
   height: 100%;
   overflow: hidden;
 }
+
 .wrapper.form-success .container h1 {
   transform: translateY(85px);
 }
@@ -285,6 +297,7 @@ form button:hover {
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   min-height: 1100px;
+  padding-bottom: 70px;
 }
 
 @keyframes gradient {

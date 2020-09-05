@@ -3,13 +3,14 @@ import { useHistory } from "react-router-dom";
 
 const Signin = (props) => {
   const [password, setPassword] = useState("");
+  const [Id, setId] = useState("");
   const [signedIn, setSignedIn] = useState(false);
   const history = useHistory();
 
   const signin = (e) => {
     // const history = useHistory()
     e.preventDefault();
-    if (password !== "123") {
+    if (password !== "123" || Id !== "admin") {
       alert("User Name or Password Wrong!");
     } else {
       setSignedIn(true);
@@ -24,6 +25,11 @@ const Signin = (props) => {
     console.log(password);
   };
 
+  const IdChange = (e) => {
+    setId(e.target.value);
+    console.log(password);
+  };
+
   return (
     <>
       {" "}
@@ -31,7 +37,11 @@ const Signin = (props) => {
         <div className="container">
           <h1> {signedIn ? "Welcome " : "Sign In"} </h1>
           <form className={signedIn ? "fadeOut" : "form"}>
-            <input type="text" placeholder="Username"></input>
+            <input
+              type="text"
+              placeholder="Username"
+              onChange={IdChange}
+            ></input>
             <input
               type="password"
               placeholder="Password"

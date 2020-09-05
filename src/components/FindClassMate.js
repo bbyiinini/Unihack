@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
-import { Card, Button } from "react-bootstrap/";
+import { Card, Button, Popover, OverlayTrigger } from "react-bootstrap/";
 import data from "../assets/userData.json";
+import "../styles.css";
 
 let page = 0;
 
@@ -23,20 +24,40 @@ const FindClassMate = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [items, setItems] = useState([]);
 
+  useEffect(() => {
+    loadMore(12);
+  }, [result]);
+
   const getData = (num) => {
-    console.log(result.slice(page, page + num));
     return result.slice(page, (page += num));
   };
 
   const flitData = (classID) => {
     setItems([]);
     page = 0;
-    classID === ""
-      ? setResult(data.persons)
-      : setResult(
-          data.persons.filter((person) => person.class.includes(classID))
+    if (classID === "") setResult(data.persons);
+    else if (classID.length === 1) {
+      setResult(
+        data.persons.filter((person) => person.classes.includes(classID))
+      );
+    } else {
+      let index = classID.length - 1;
+      let output = result.filter((p) =>
+        p.classes.includes(classID.substring(index, index + 1))
+      );
+      index--;
+      while (index >= 0) {
+        output = output.filter((p) =>
+          p.classes.includes(classID.substring(index, index + 1))
         );
-    console.log(result);
+        index--;
+        console.log(output);
+      }
+      console.log("-------");
+      console.log(output);
+      console.log("-------");
+      setResult(output);
+    }
   };
 
   const loadMore = (nums) => {
@@ -55,10 +76,6 @@ const FindClassMate = () => {
     // setTimeout(() => setIsLoading(false), 1000);
   };
 
-  useEffect(() => {
-    loadMore(3);
-  }, [result]);
-
   const onSearchChanged = (e) => {
     reLoad(e.target.value);
   };
@@ -75,6 +92,7 @@ const FindClassMate = () => {
           {items.map((res) => (
             <Grid item xs={3} key={res.id}>
               <Card
+                bg={res.teacher ? "warning" : "light"}
                 style={{
                   width: "70%",
                   margin: "0 50%",
@@ -86,14 +104,44 @@ const FindClassMate = () => {
                     height: "15rem"
                   }}
                   variant="top"
-                  src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599275590436&di=1711384d414d959a18b3eaa316e8bab8&imgtype=0&src=http%3A%2F%2Ft7.baidu.com%2Fit%2Fu%3D3616242789%2C1098670747%26fm%3D79%26app%3D86%26f%3DJPEG%3Fw%3D900%26h%3D1350"
+                  src={
+                    res.avatar
+                      ? res.avatar
+                      : "https://react.semantic-ui.com/images/avatar/large/daniel.jpg"
+                  }
                 />
                 <Card.Body>
                   <Card.Title>{res.name}</Card.Title>
                   <Card.Text>
-                    This gay also takes "{res.class.join(",")}" {res.number}
+                    <strong>{res.teacher ? "Teacher" : "Student"}</strong>{" "}
+                    <br></br>
+                    Classes: "{res.classes.join(",")}"
                   </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
+                  <OverlayTrigger
+                    trigger="focus"
+                    placement="right"
+                    overlay={
+                      <Popover id="popover-basic">
+                        <Popover.Title as="h3">
+                          <strong>Name</strong>: {res.name}
+                        </Popover.Title>
+                        <Popover.Content>
+                          <strong>Number: </strong>
+                          {res.phone}
+                        </Popover.Content>
+                        <Popover.Content>
+                          <strong>Email: </strong>
+                          {res.email}
+                        </Popover.Content>
+                        <Popover.Content>
+                          <strong>About: </strong>
+                          {res.about}
+                        </Popover.Content>
+                      </Popover>
+                    }
+                  >
+                    <Button variant="danger">Info</Button>
+                  </OverlayTrigger>
                 </Card.Body>
               </Card>
             </Grid>
@@ -101,7 +149,7 @@ const FindClassMate = () => {
         </Grid>
       </div>
       <div className="load-more">
-        <a className="load-more-button" onClick={() => loadMore(3)}>
+        <a className="load-more-button" onClick={() => loadMore(12)}>
           {isLoading ? "..." : "Load More"}
         </a>
       </div>
