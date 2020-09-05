@@ -56,10 +56,10 @@ class Post extends Component {
     } else {
       return (
         <div>
+          <NewPost />
           {postarr.map((item, index) => {
             return (
               <div>
-                <NewPost />
                 <PostWrapper>
                   <Comment
                     key={index}

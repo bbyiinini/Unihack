@@ -7,7 +7,9 @@ import {
   Button,
   Popover,
   Dropdown,
-  OverlayTrigger
+  OverlayTrigger,
+  Col,
+  Image
 } from "react-bootstrap/";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -23,10 +25,16 @@ const NavBar = (props) => {
     </Popover>
   );
 
+  const logout = () => {
+    props.toggleLogin();
+  };
+
   return (
     <>
       <Navbar bg="light" expand="lg" fixed="top">
-        <Navbar.Brand href="#home">Logo</Navbar.Brand>
+        <Col xs={6} md={4}>
+          <Image src="../logo.png/5x5" roundedCircle />
+        </Col>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
@@ -40,7 +48,9 @@ const NavBar = (props) => {
               placement="bottom"
               overlay={popover}
             >
-              <Button variant="danger">Click me to see</Button>
+              <Button variant="danger" onClick={logout}>
+                Click me to see
+              </Button>
             </OverlayTrigger>
           ) : (
             <>

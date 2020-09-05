@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "../styles.css";
 
 const Signup = () => {
   const [signedIn, setSignedIn] = useState(false);
+  const history = useHistory();
 
-  const signup = () => {
+  const signup = (e) => {
+    e.preventDefault();
     setSignedIn(true);
+    setTimeout(() => {
+      history.push("/");
+    }, 1000);
   };
 
   return (
@@ -14,7 +19,7 @@ const Signup = () => {
       <div className={signedIn ? "wrapper form-success" : "wrapper"}>
         <div className="container">
           <h1> {signedIn ? "Welcome " : "Sign Up"} </h1>
-          <form className={signedIn ? "fadeOut(500)" : "form"}>
+          <form className={signedIn ? "fadeOut" : "form"}>
             <input type="text" placeholder="Username"></input>
             <input type="text" placeholder="Phone"></input>
             <input type="text" placeholder="Classes"></input>

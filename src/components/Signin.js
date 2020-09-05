@@ -1,25 +1,21 @@
 import React, { useState } from "react";
-import {
-  MDBRow,
-  MDBCol,
-  MDBInput,
-  MDBBtn,
-  MDBCard,
-  MDBCardBody
-} from "mdbreact";
-import data from "../assets/userData.json";
+import { useHistory } from "react-router-dom";
 
 const Signin = (props) => {
-  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [signedIn, setSignedIn] = useState(false);
+  const history = useHistory();
 
-  const signin = () => {
+  const signin = (e) => {
+    // const history = useHistory()
+    e.preventDefault();
     if (password !== "123") {
-      alert("incorrect");
+      alert("User Name or Password Wrong!");
     } else {
       setSignedIn(true);
-      props.toggleLogin();
+      setTimeout(() => {
+        history.push("/");
+      }, 1000);
     }
   };
 
@@ -34,7 +30,7 @@ const Signin = (props) => {
       <div className={signedIn ? "wrapper form-success" : "wrapper"}>
         <div className="container">
           <h1> {signedIn ? "Welcome " : "Sign In"} </h1>
-          <form className={signedIn ? "fadeOut(500)" : "form"}>
+          <form className={signedIn ? "fadeOut" : "form"}>
             <input type="text" placeholder="Username"></input>
             <input
               type="password"
@@ -43,7 +39,7 @@ const Signin = (props) => {
             ></input>
             {/* <Link to="/home"> */}
             <button id="login-button" onClick={signin}>
-              Login
+              Sign in
             </button>
             {/* </Link> */}
           </form>

@@ -5,20 +5,26 @@ import Signin from "./components/Signin";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Post from "./components/post/Post";
 import FindClassMate from "./components/FindClassMate";
-// import "./main.css";
+import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { loggedIn: false };
+    this.state = { loggedIn: localStorage.getItem("myLog") || false };
+    localStorage.clear();
     this.toggleLogin = this.toggleLogin.bind(this);
+  }
+
+  componentDidMount() {
+    localStorage.setItem("myLog", this.state.loggedIn);
   }
 
   toggleLogin() {
     this.setState({
       loggedIn: !this.state.loggedIn
     });
+    localStorage.setItem("myLog", this.state.loggedIn);
   }
 
   render() {
@@ -31,7 +37,21 @@ class App extends Component {
           />
           <Switch>
             <Route exact path="/">
-              <div></div>
+              <div className={"wrapper"}>
+                <div className="container"></div>
+                <ul class="bg-bubbles">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
             </Route>
             <Route exact path="/forum" component={() => <Post />} />
             <Route
