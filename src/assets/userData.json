@@ -1,0 +1,88 @@
+{
+  "persons": [
+    {
+      "name": "admin",
+      "number": "666-666-666",
+      "class": ["a", "b", "c", "d"],
+      "password": "123",
+      "id": 0
+    },
+    {
+      "name": "Rida Holcomb",
+      "number": "443-690-708",
+      "class": ["a", "b", "c", "d"],
+      "password": "123",
+      "id": 1
+    },
+    {
+      "name": "Dan Abramov",
+      "number": "269-097-720",
+      "class": ["d", "e", "f", "g"],
+      "password": "123",
+      "id": 2
+    },
+    {
+      "name": "Harvey Roberson",
+      "number": "793-549-0301",
+      "class": ["a", "c", "f", "g"],
+      "password": "123",
+      "id": 3
+    },
+    {
+      "name": "Tony Macdonald",
+      "number": "678-981-1290",
+      "class": ["h", "d", "f", "g"],
+      "password": "123",
+      "id": 4
+    },
+    {
+      "name": "lsp",
+      "number": "678-981-1270",
+      "class": ["z", "h", "c", "g"],
+      "password": "123",
+      "id": 5
+    },
+    {
+      "name": "1pjpo",
+      "number": "678-981-1270",
+      "class": ["h", "d", "f", "g"],
+      "password": "123",
+      "id": 6
+    },
+    {
+      "name": "Ben Jalkf",
+      "number": "678-981-1270",
+      "class": ["h", "d", "f", "g"],
+      "password": "123",
+      "id": 7
+    },
+    {
+      "name": "Uni Land",
+      "number": "678-981-1220",
+      "class": ["h", "l", "p", "f", "g"],
+      "password": "123",
+      "id": 8
+    },
+    {
+      "name": "Hen Laj",
+      "number": "678-981-1270",
+      "class": ["h", "d", "c", "g"],
+      "password": "123",
+      "id": 9
+    },
+    {
+      "name": "Flalk Akea",
+      "number": "678-981-1270",
+      "class": ["h", "a", "f", "g"],
+      "password": "123",
+      "id": 10
+    },
+    {
+      "name": "Upas Utra",
+      "number": "678-981-1270",
+      "class": ["h", "l", "f", "g"],
+      "password": "123",
+      "id": 11
+    }
+  ]
+}
