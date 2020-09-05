@@ -26,7 +26,7 @@ const Signup = () => {
             <input type="password" placeholder="Password"></input>
             {/* <Link to="/home"> */}
             <button id="login-button" onClick={signup}>
-              Login
+              Signup
             </button>
             {/* </Link> */}
           </form>
