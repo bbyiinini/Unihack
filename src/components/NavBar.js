@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Modal from "react-modal";
 import {
   Navbar,
@@ -83,7 +83,7 @@ const NavBar = (props) => {
           {props.loggedIn ? (
             <OverlayTrigger
               trigger="focus"
-              placement="bottom"
+              placement="left-end"
               overlay={popover}
             >
               <Button

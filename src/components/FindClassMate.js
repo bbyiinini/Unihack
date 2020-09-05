@@ -15,10 +15,6 @@ let page = 0;
 //   return data.persons.filter((person) => person.class.includes(classID));
 // }
 
-const findPeople = (classID) => {
-  return "Hi " + classID;
-};
-
 const FindClassMate = () => {
   const [result, setResult] = useState(data.persons);
   const [isLoading, setIsLoading] = useState(false);

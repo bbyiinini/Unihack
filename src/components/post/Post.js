@@ -72,7 +72,7 @@ class Post extends Component {
             return (
               <PostWrapper>
                 <Comment
-                  key={item.id}
+                  key={"index"}
                   author={item.author}
                   avatar={<Avatar src={item.authorImage} />}
                   content={item.content}
@@ -99,7 +99,7 @@ class Post extends Component {
                   {item.comment.map((item2, index2) => {
                     return (
                       <Comment
-                        key={this.state.usr.id}
+                        key={index2}
                         author={this.state.user.name}
                         avatar={<Avatar src={this.state.user.image} />}
                         content={item2}

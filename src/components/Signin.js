@@ -9,7 +9,6 @@ const Signin = (props) => {
 
   const login = () => {
     localStorage.setItem("myLog", "yes");
-    props.toggleLogin();
   };
 
   const signin = (e) => {
@@ -18,10 +17,10 @@ const Signin = (props) => {
       alert("User Name or Password Wrong!");
     } else {
       setSignedIn(true);
-      // localStorage.setItem("myLog", true);
       login();
       setTimeout(() => {
         history.push("/");
+        props.toggleLogin();
       }, 1000);
     }
   };

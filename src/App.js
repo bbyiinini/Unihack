@@ -30,9 +30,6 @@ class App extends Component {
     this.setState({
       loggedIn: localStorage.getItem("myLog") === "no" ? false : true
     });
-    console.log(
-      "toggle " + localStorage.getItem("myLog") + " " + this.state.loggedIn
-    );
   }
 
   render() {
