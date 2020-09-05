@@ -47,11 +47,7 @@ const FindClassMate = () => {
           p.classes.includes(classID.substring(index, index + 1))
         );
         index--;
-        console.log(output);
       }
-      console.log("-------");
-      console.log(output);
-      console.log("-------");
       setResult(output);
     }
   };

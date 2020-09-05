@@ -19,7 +19,6 @@ const NavBar = (props) => {
   const logout = () => {
     localStorage.setItem("myLog", "no");
     props.toggleLogin();
-    console.log(props);
   };
 
   const popover = (

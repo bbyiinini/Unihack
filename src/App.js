@@ -17,9 +17,6 @@ class App extends Component {
       loggedIn: localStorage.getItem("myLog") === "no" ? false : true
     };
     this.toggleLogin = this.toggleLogin.bind(this);
-    console.log(
-      "refresh " + localStorage.getItem("myLog") + " " + this.state.loggedIn
-    );
   }
 
   componentDidMount() {

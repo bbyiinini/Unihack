@@ -42,6 +42,20 @@ class Post extends Component {
         },
         {
           id: 2,
+          author: "Paul Cao",
+          info: {
+            class: "n,t,z,n",
+            number: "911-555-3758",
+            email: "DineshSilliconValley@gmail.com",
+            about: "Master student at UCSD. Best coder in the bay area."
+          },
+          authorImage:
+            "https://cse.ucsd.edu/sites/cse.ucsd.edu/files/faculty/caoF17-115x150.jpg",
+          content: "Start early, Start offen",
+          comment: []
+        },
+        {
+          id: 3,
           author: "Richard Hendricks",
           info: {
             class: "cs329e",
@@ -166,8 +180,6 @@ class Post extends Component {
       content: val,
       comment: []
     };
-    console.log(newPost);
-    console.log(this.state.posts);
     this.setState(() => ({
       posts: [...this.state.posts, newPost]
     }));
