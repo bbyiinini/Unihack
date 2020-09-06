@@ -6,7 +6,6 @@ This is a Forum especially for college students to make friends and share class 
 
 With an elegant and vivid Home Page along with smooth interactive interface, you can Login or Sign up freely and then switch to different pages on your PC or smart phone.
 
-
 # Get Started
 
 This is [demo]("/") site, please go through this README before
@@ -17,8 +16,9 @@ We're going to use the create-react-app because it sets some useful tools and ca
 This is just a command-line utility add dependency projects.
 
 ```shell
-npm install 
+npm install
 ```
+
 the use command below to start local server and run our project
 
 ```shell

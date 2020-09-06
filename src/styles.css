@@ -140,7 +140,7 @@ body :-ms-input-placeholder {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .wrapper.form-success .container h1 {
