@@ -8,7 +8,7 @@ With an elegant and vivid Home Page along with smooth interactive interface, you
 
 # Get Started
 
-This is [demo]("https://4yuyg.csb.app") site, please go through this README before
+This is [demo](https://4yuyg.csb.app/) site, please go through this README before
 
 # Install
 
